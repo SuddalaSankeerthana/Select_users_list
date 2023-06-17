@@ -1,10 +1,8 @@
 import "./App.css";
-import {
-  UsersDataComponentOnAdd,
-  UsersDataComponentOnSubmit,
-} from "./UserDataComponet";
 import { users } from "./Data";
 import { useState } from "react";
+import { UsersDataComponentOnSubmit } from "./UsersDataComponentOnSubmit";
+import { UsersDataComponentOnAdd } from "./UsersDataComponentOnAdd";
 import UserDataInterface from "./Interfaces";
 function App() {
   const [add, setAdd] = useState(false);
@@ -28,8 +26,46 @@ function App() {
       <div className="App">
         <h1>Invite users</h1>
         <button
-          id="Add"></button>
-          </div>
-         </section> )
-
+          id="Add"
+          onClick={() => {
+            setSubmit(false), setAdd(true);
+          }}
+        >Add</button>
+        {add && <RenderData></RenderData>}
+        {submit && (
+          <>
+            <p> <b><p>Users</p></b>
+              {userdata.map((user: UserDataInterface) => (
+                <UsersDataComponentOnSubmit
+                  user={user}
+                ></UsersDataComponentOnSubmit>
+              ))}
+            </p>
+          </>
+        )}
+      </div>
+    </section>
+  );
+  function RenderData() {
+    return (
+      <>
+        {users.map((user: UserDataInterface) => (
+          <UsersDataComponentOnAdd
+            user={user}
+            clickHandler={() => clickHandler(user.id)}
+          ></UsersDataComponentOnAdd>
+        ))}
+        <button id="cancel">Cancel</button>
+        <button
+          id="submit"
+          onClick={() => {
+            addedList(), setSubmit(true), setAdd(false);
+          }}
+        >
+          Submit
+        </button>
+      </>
+    );
+  }
+}
 export default App;
