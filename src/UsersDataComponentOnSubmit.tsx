@@ -1,6 +1,6 @@
 import UserDataInterface from "./Interfaces";
-import  React ,{ useState } from "react";
-export function UsersDataComponentOnSubmit({
+import React, { useState } from "react";
+export default function UsersDataComponentOnSubmit({
   user,
 }: {
   user: UserDataInterface;

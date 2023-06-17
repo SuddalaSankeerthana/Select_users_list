@@ -1,8 +1,10 @@
 import "./App.css";
+import {
+  UsersDataComponentOnAdd,
+  UsersDataComponentOnSubmit,
+} from "./UserDataComponent";
 import { users } from "./Data";
 import { useState } from "react";
-import { UsersDataComponentOnSubmit } from "./UsersDataComponentOnSubmit";
-import { UsersDataComponentOnAdd } from "./UsersDataComponentOnAdd";
 import UserDataInterface from "./Interfaces";
 function App() {
   const [add, setAdd] = useState(false);
