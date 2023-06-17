@@ -1,5 +1,5 @@
 # Getting Started with Create React App
-
+This project is to implement the selection list from the available users list. 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
