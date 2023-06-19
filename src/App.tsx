@@ -9,6 +9,7 @@ import UserDataInterface from "./Interfaces";
 function App() {
   const [add, setAdd] = useState(false);
   const [submit, setSubmit] = useState(false);
+  const[disble,setDisable]=useState(false)
   const userdata = users.filter((ele) => ele.select === true);
   const [userData, setUserData] = useState(userdata);
   const addedList = () => {
@@ -22,6 +23,7 @@ function App() {
       }
     });
     console.log(users);
+     setDisable(true);
   };
   return (
     <section>
@@ -30,7 +32,7 @@ function App() {
         <button
           id="Add"
           onClick={() => {
-            setSubmit(false), setAdd(true);
+            setSubmit(false), setAdd(true), setDisable(false);
           }}
         >Add</button>
         {add && <RenderData></RenderData>}
@@ -61,8 +63,11 @@ function App() {
         <button
           id="submit"
           onClick={() => {
-            addedList(), setSubmit(true), setAdd(false);
+            addedList();
+            setSubmit(true);
+            setAdd(false);
           }}
+          disabled={disble}
         >
           Submit
         </button>

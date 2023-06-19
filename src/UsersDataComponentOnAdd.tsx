@@ -8,7 +8,6 @@ export default function UsersDataComponentOnAdd({
     user,
     clickHandler,
   }: UserProps): React.ReactElement {
-    const [select, setSelect] = useState(user.select);
     return (
         <table>
           <tr>
