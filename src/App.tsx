@@ -1,3 +1,4 @@
+
 import "./App.css";
 import {
   UsersDataComponentOnAdd,
@@ -9,12 +10,10 @@ import UserDataInterface from "./Interfaces";
 function App() {
   const [add, setAdd] = useState(false);
   const [submit, setSubmit] = useState(false);
-  const[disble,setDisable]=useState(false)
   const userdata = users.filter((ele) => ele.select === true);
   const [userData, setUserData] = useState(userdata);
   const addedList = () => {
     setUserData(userData.filter((ele) => ele.select === true));
-    console.log(userData);
   };
   const clickHandler = (id: number) => {
     users.filter((ele) => {
@@ -22,8 +21,6 @@ function App() {
         return (ele.select = !ele.select);
       }
     });
-    console.log(users);
-     setDisable(true);
   };
   return (
     <section>
@@ -32,13 +29,18 @@ function App() {
         <button
           id="Add"
           onClick={() => {
-            setSubmit(false), setAdd(true), setDisable(false);
+            setSubmit(false), setAdd(true);
           }}
-        >Add</button>
+        >
+          Add
+        </button>
         {add && <RenderData></RenderData>}
         {submit && (
           <>
-            <p> <b><p>Users</p></b>
+            <p>
+              <b>
+                <p>Users</p>
+              </b>
               {userdata.map((user: UserDataInterface) => (
                 <UsersDataComponentOnSubmit
                   user={user}
@@ -67,7 +69,6 @@ function App() {
             setSubmit(true);
             setAdd(false);
           }}
-          disabled={disble}
         >
           Submit
         </button>
