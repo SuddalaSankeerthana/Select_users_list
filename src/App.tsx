@@ -1,4 +1,4 @@
-
+import React from "react";
 import "./App.css";
 import {
   UsersDataComponentOnAdd,
@@ -34,25 +34,29 @@ function App() {
         >
           Add
         </button>
-        {add && <>
-      {users.map((user: UserDataInterface) => (
-        <UsersDataComponentOnAdd
-          user={user}
-          clickHandler={() => clickHandler(user.id)}
-        ></UsersDataComponentOnAdd>
-      ))}
-      <button id="cancel">Cancel</button>
-      <button
-        id="submit"
-        onClick={() => {
-          addedList();
-          setSubmit(true);
-          setAdd(false);
-        }}
-      >
-        Submit
-      </button>
-    </>}
+        {add && (
+          <>
+            {users.map((user: UserDataInterface) => (
+              <div key={user.id}>
+                <UsersDataComponentOnAdd
+                  user={user}
+                  clickHandler={() => clickHandler(user.id)}
+                ></UsersDataComponentOnAdd>
+              </div>
+            ))}
+            <button id="cancel">Cancel</button>
+            <button
+              id="submit"
+              onClick={() => {
+                addedList();
+                setSubmit(true);
+                setAdd(false);
+              }}
+            >
+              Submit
+            </button>
+          </>
+        )}
         {submit && (
           <>
             <p>
@@ -60,9 +64,11 @@ function App() {
                 <p>Users</p>
               </b>
               {userdata.map((user: UserDataInterface) => (
-                <UsersDataComponentOnSubmit
-                  user={user}
-                ></UsersDataComponentOnSubmit>
+                <div key={user.id}>
+                  <UsersDataComponentOnSubmit
+                    user={user}
+                  ></UsersDataComponentOnSubmit>
+                </div>
               ))}
             </p>
           </>
