@@ -25,6 +25,7 @@ function App() {
   return (
     <section>
       <div className="App">
+        <div className="header">
         <h1>Invite users</h1>
         <button
           id="Add"
@@ -33,9 +34,11 @@ function App() {
           }}
         >
           Add
-        </button>
+        </button></div>
         {add && (
           <>
+          <p>Atleast one User need to be selected</p>
+         <b><p>Onboard Users</p></b>
             {users.map((user: UserDataInterface) => (
               <div key={user.id}>
                 <UsersDataComponentOnAdd

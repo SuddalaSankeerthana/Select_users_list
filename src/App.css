@@ -1,12 +1,13 @@
 .App {
   text-align: center;
 }
-.users{
-  text-align: auto;
+#Add{
+ background-color: green;
 }
-/* spacing */
-
-table {
+.header{
+  flex-wrap: wrap;
+}
+/* table {
   table-layout: fixed;
   width: 50%;
   height: fit-content;
@@ -32,4 +33,4 @@ thead th:nth-child(4) {
 th,
 td {
   padding: 20px;
-}
+} */
