@@ -19,7 +19,7 @@ npm install
 ## Usage :
 - Clone the repository by running the following command, or download the repository.
 ```
-git clone https://github.com/SuddalaSankeerthana/sign_in_form_react_js.git
+git clone https://github.com/SuddalaSankeerthana/Select_users_list.git
 ```
 - install npm module.
 ```
